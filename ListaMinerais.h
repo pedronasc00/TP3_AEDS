@@ -1,6 +1,6 @@
 #ifndef LISTAMINERAIS_H
 #define LISTAMINERAIS_H
-#define MaxTam 10000
+#define MaxTam 5
 #define InicioArranjo 0
 #include "Mineral.h"
 
