@@ -22,29 +22,6 @@ int LInsereMine(ListaMinerais *LMinerais, Mineral x)
     return 1;
 }
 
-int LRetiraMine(ListaMinerais *LMinerais, char *nome, Mineral *pX)
-{
-    int i, cont;
-
-    for (i = 0; i < LMinerais->last; i++)
-    {
-        if (strcmp(LMinerais->ListaM[i].nome, nome) == 0)
-        {
-            *pX = LMinerais->ListaM[i];
-
-            LMinerais->last--;
-
-            for (cont = i + 1; cont <= LMinerais->last; cont++)
-            {
-                LMinerais->ListaM[cont - 1] = LMinerais->ListaM[cont];
-            }
-
-            return 1;
-        }
-    }
-    return 0;
-}
-
 void LImprimeMine(ListaMinerais *LMinerais)
 {
     int i;

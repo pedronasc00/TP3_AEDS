@@ -14,7 +14,6 @@ typedef struct
 void FLVaziaMine(ListaMinerais *LMinerais);
 int LEhVaziaMine(ListaMinerais *LMinerais);
 int LInsereMine(ListaMinerais *LMinerais, Mineral x);
-int LRetiraMine(ListaMinerais *LMinerais, char *nome, Mineral *pX);
 void LImprimeMine(ListaMinerais *LMinerais);
 
 #endif
