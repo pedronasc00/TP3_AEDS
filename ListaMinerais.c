@@ -5,7 +5,7 @@
 
 void FLVaziaMine(ListaMinerais *LMinerais)
 {
-    LMinerais->first = 0;
+    LMinerais->first = InicioArranjo;
     LMinerais->last = LMinerais->first;
 }
 
