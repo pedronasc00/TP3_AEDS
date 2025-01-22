@@ -4,8 +4,7 @@
 #include <time.h>
 #include "Compartimento.h"
 
-int main(int argc, char const *argv[])
-{
+int main() {
     clock_t start = clock();
     
     int N_rochas;
@@ -13,13 +12,10 @@ int main(int argc, char const *argv[])
     float peso_r;
     char linha[255];
     Compartimento ListaRocha;
-    printf("AAAAAAAA1\n");
 
     FLVaziaRocha(&ListaRocha);
-    printf("AAAAAAAA1\n");
 
     printf("Digite o nome do arquivo: ");
-    printf("AAAAAAAA1\n");
 
     char nomearq[33];
     scanf("%32s", nomearq);
@@ -41,11 +37,12 @@ int main(int argc, char const *argv[])
         FLVaziaMine(&RochaN.LMinerais);
         fgets(linha, sizeof(linha), arq);
 
-        if (linha[strlen(linha)-1] == '\n') {
-            linha[strlen(linha)-1] = '\0';
-        } else {
-            linha[strlen(linha)] = '\0';
+        fgets(linha, sizeof(linha), arq);
+
+        if (linha[strlen(linha) - 1] == '\n') {
+            linha[strlen(linha) - 1] = '\0';
         }
+        
         const char delim[] = " ";
         char *parteMinerais = strtok(linha, delim);
 
@@ -54,7 +51,7 @@ int main(int argc, char const *argv[])
             LInsereMine(&RochaN.LMinerais, mineral);
             parteMinerais = strtok(NULL, delim);
         }
-        InicializaRocha(&RochaN, (i + 1), peso_r, DefCategoria(&RochaN), lat_r, long_r);
+        InicializaRocha(&RochaN, peso_r, DefCategoria(&RochaN), lat_r, long_r);
         LInsereRocha(&ListaRocha, RochaN);
     }
     fclose(arq);

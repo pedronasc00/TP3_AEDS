@@ -4,14 +4,14 @@
 #include "Compartimento.h"
 
 void FLVaziaRocha(Compartimento* LRocha) {
-    LRocha->first = InicioArranjo;
+    LRocha->first = 0;
     LRocha->last = LRocha->first;
 }   
 int LEhVaziaRocha(Compartimento* LRocha) {
     return LRocha->last == LRocha->first;
 }
 int LInsereRocha(Compartimento* LRocha, RochaMineral x) {
-    if (LRocha->last == MaxCOP)
+    if (LRocha->last == MAX)
         return 0;
     LRocha->ListaR[LRocha->last++] = x;
     return 1;

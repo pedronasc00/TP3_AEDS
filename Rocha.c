@@ -3,8 +3,7 @@
 #include <string.h>
 #include "Rocha.h"
 
-void InicializaRocha(RochaMineral *rocha, int id, float peso, char* categoria, double latitude, double longitude) {
-    setIdentificador(rocha, id);
+void InicializaRocha(RochaMineral *rocha, float peso, char* categoria, double latitude, double longitude) {
     setPeso(rocha, peso);
     setCategoria(rocha, categoria);
     setLocalizacao(rocha, latitude, longitude);
@@ -97,27 +96,17 @@ char* DefCategoria(RochaMineral *rocha) {
     return rocha->categoria;
 }
 
-void setIdentificador(RochaMineral *rocha, int id)
-{
-    rocha->id = id;
-}
-void setPeso(RochaMineral *rocha, float peso)
-{
+void setPeso(RochaMineral *rocha, float peso) {
     rocha->peso = peso;
 }
-void setCategoria(RochaMineral *rocha, char *categoria)
-{
+void setCategoria(RochaMineral *rocha, char *categoria) {
     strcpy(rocha->categoria, categoria);
 }
-void setLocalizacao(RochaMineral *rocha, double latitude, double longitude)
-{
+void setLocalizacao(RochaMineral *rocha, double latitude, double longitude) {
     rocha->latitude = latitude;
     rocha->longitude = longitude;
 }
 
-int getIdentificador(RochaMineral *rocha) {
-    return rocha->id;
-}
 float getPeso(RochaMineral *rocha) { 
     return rocha->peso; 
 }
