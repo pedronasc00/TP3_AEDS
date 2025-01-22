@@ -5,11 +5,11 @@
 #include "Mineral.h"
 
 typedef int ApontadorMineral;
-typedef struct 
+typedef struct
 {
     Mineral ListaM[MaxTam];
     ApontadorMineral first, last;
-}ListaMinerais;
+} ListaMinerais;
 
 void FLVaziaMine(ListaMinerais *LMinerais);
 int LEhVaziaMine(ListaMinerais *LMinerais);
