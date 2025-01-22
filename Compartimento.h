@@ -4,11 +4,11 @@
 #include "Rocha.h"
 
 typedef int ApontadorRocha;
-typedef struct 
+typedef struct
 {
     RochaMineral ListaR[MAX];
     ApontadorRocha first, last;
-}Compartimento;
+} Compartimento;
 
 void FLVaziaRocha(Compartimento *LRocha);
 int LEhVaziaRocha(Compartimento *LRocha);

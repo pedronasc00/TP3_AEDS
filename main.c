@@ -1,18 +1,19 @@
+#include "Compartimento.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include "Compartimento.h"
 
 int main() {
     clock_t start, stop;
     
+    Compartimento ListaRocha;
+    
+    printf("AAAAAAA");
     int N_rochas;
     double lat_r, long_r;
     float peso_r;
     char linha[255];
-    Compartimento ListaRocha;
-
     FLVaziaRocha(&ListaRocha);
 
     printf("Digite o nome do arquivo: ");
@@ -21,14 +22,16 @@ int main() {
     scanf("%32s", nomearq);
     FILE *arq = fopen(nomearq, "r");
 
-    if (arq == NULL) {
+    if (arq == NULL)
+    {
         perror("Erro ao abrir o arquivo\n");
         return 1;
     }
 
-    fscanf(arq, "%d", &N_rochas);   
-
-    for (int i = 0; i < N_rochas; i++) {
+    fscanf(arq, "%d", &N_rochas);
+    clock_t start = clock();
+    for (int i = 0; i < N_rochas; i++)
+    {
         RochaMineral RochaN;
         Mineral mineral;
 
@@ -40,11 +43,12 @@ int main() {
         if (linha[strlen(linha) - 1] == '\n') {
             linha[strlen(linha) - 1] = '\0';
         }
-        
+
         const char delim[] = " ";
         char *parteMinerais = strtok(linha, delim);
 
-        while (parteMinerais != NULL) {
+        while (parteMinerais != NULL)
+        {
             strcpy(mineral.nome, parteMinerais);
             LInsereMine(&RochaN.LMinerais, mineral);
             parteMinerais = strtok(NULL, delim);

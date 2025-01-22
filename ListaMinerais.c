@@ -22,7 +22,8 @@ int LInsereMine(ListaMinerais *LMinerais, Mineral x)
     return 1;
 }
 
-void LImprimeMine(ListaMinerais *LMinerais) {
+void LImprimeMine(ListaMinerais *LMinerais)
+{
     int i;
 
     printf("Info dos minerais:\n");

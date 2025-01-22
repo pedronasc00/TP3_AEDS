@@ -3,13 +3,15 @@
 #include <string.h>
 #include "Rocha.h"
 
-void InicializaRocha(RochaMineral *rocha, float peso, char* categoria, double latitude, double longitude) {
+void InicializaRocha(RochaMineral *rocha, float peso, char *categoria, double latitude, double longitude)
+{
     setPeso(rocha, peso);
     setCategoria(rocha, categoria);
     setLocalizacao(rocha, latitude, longitude);
 }
 
-char* DefCategoria(RochaMineral *rocha) {
+char *DefCategoria(RochaMineral *rocha)
+{
     int i;
     int qtdMinerais = rocha->LMinerais.last;
 
@@ -25,7 +27,8 @@ char* DefCategoria(RochaMineral *rocha) {
     int temTerranita = 0;
     int temCalaris = 0;
 
-    for (i = rocha->LMinerais.first; i < rocha->LMinerais.last; i++) {
+    for (i = rocha->LMinerais.first; i < rocha->LMinerais.last; i++)
+    {
         if (strcmp(rocha->LMinerais.ListaM[i].nome, "Ferrolita") == 0)
         {
             temFerrolita = 1;
@@ -96,26 +99,33 @@ char* DefCategoria(RochaMineral *rocha) {
     return rocha->categoria;
 }
 
-void setPeso(RochaMineral *rocha, float peso) {
+void setPeso(RochaMineral *rocha, float peso)
+{
     rocha->peso = peso;
 }
-void setCategoria(RochaMineral *rocha, char *categoria) {
+void setCategoria(RochaMineral *rocha, char *categoria)
+{
     strcpy(rocha->categoria, categoria);
 }
-void setLocalizacao(RochaMineral *rocha, double latitude, double longitude) {
+void setLocalizacao(RochaMineral *rocha, double latitude, double longitude)
+{
     rocha->latitude = latitude;
     rocha->longitude = longitude;
 }
 
-float getPeso(RochaMineral *rocha) { 
-    return rocha->peso; 
+float getPeso(RochaMineral *rocha)
+{
+    return rocha->peso;
 }
-char* getCategoria(RochaMineral *rocha) { 
-    return rocha->categoria; 
+char *getCategoria(RochaMineral *rocha)
+{
+    return rocha->categoria;
 }
-double getLatitude(RochaMineral *rocha) { 
-    return rocha->latitude; 
+double getLatitude(RochaMineral *rocha)
+{
+    return rocha->latitude;
 }
-double getLongitude(RochaMineral *rocha) { 
-    return rocha->longitude; 
+double getLongitude(RochaMineral *rocha)
+{
+    return rocha->longitude;
 }

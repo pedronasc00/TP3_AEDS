@@ -6,17 +6,17 @@
 void FLVaziaRocha(Compartimento* LRocha) {
     LRocha->first = InicioArranjo;
     LRocha->last = LRocha->first;
-}   
-int LEhVaziaRocha(Compartimento* LRocha) {
+}
+int LEhVaziaRocha(Compartimento *LRocha) {
     return LRocha->last == LRocha->first;
 }
-int LInsereRocha(Compartimento* LRocha, RochaMineral x) {
+int LInsereRocha(Compartimento *LRocha, RochaMineral x) {
     if (LRocha->last == MAX)
         return 0;
     LRocha->ListaR[LRocha->last++] = x;
     return 1;
 }
-void LImprimeRocha(Compartimento* LRocha) {
+void LImprimeRocha(Compartimento *LRocha) {
     int i;
 
     printf("----------------------------\n");
@@ -25,7 +25,8 @@ void LImprimeRocha(Compartimento* LRocha) {
     }
 }
 int LTamanho(Compartimento *LRocha) {
-    if (LRocha->first == LRocha->last) {
+    if (LRocha->first == LRocha->last)
+    {
         return 0;
     }
     return LRocha->last - LRocha->first;
@@ -35,7 +36,8 @@ void SelectionSort(Compartimento *LRocha, int n) {
     int mov = 0, comp = 0;
     RochaMineral Aux;
 
-    for (i = 0; i < n - 1; i++) {
+    for (i = 0; i < n - 1; i++)
+    {
         Min = i;
         for (j = i + 1; j < n; j++)
             if (LRocha->ListaR[j].peso < LRocha->ListaR[Min].peso) {
