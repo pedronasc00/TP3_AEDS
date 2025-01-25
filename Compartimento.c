@@ -38,30 +38,29 @@ int LTamanho(Compartimento *LRocha)
     }
     return LRocha->last - LRocha->first;
 }
-void SelectionSort(RochaMineral *ListaR, int n)
+void SelectionSort(RochaMineral *ListaR, int n, int *mov, int *comp)
 {
     int i, j, Min;
-    int mov = 0, comp = 0;
     RochaMineral Aux;
 
     for (i = 0; i < n - 1; i++)
     {
         Min = i;
-        for (j = i + 1; j < n; j++)
-            comp += 1;
+        for (j = i + 1; j < n; j++){
+           (*comp)++;
             if (ListaR[j].peso < ListaR[Min].peso)
             {
-                Min = j;  
+                Min = j;
             }
+        }    
+        if (Min!=i){
         Aux = ListaR[Min];
         ListaR[Min] = ListaR[i];
         ListaR[i] = Aux;
-        mov += 3;
+        (*mov)++;
+        }
     }
-
-    //LImprimeRocha(LRocha);
-    printf("\nMovimentacoes Selection = %d\n", mov);
-    printf("Comparacoes Seletion = %d\n", comp);
+   
 }
 void Ordena(int Esq, int Dir, Compartimento *A, int *comp, int *mov)
 {
@@ -84,6 +83,7 @@ void Particao(int Esq, int Dir, int *i, int *j, Compartimento *A, int *comp, int
     pivo = A->ListaR[(*i + *j) / 2];
     do
     {
+        (*comp)++;
         while (pivo.peso > A->ListaR[*i].peso)
         {
             (*i)++;
@@ -102,18 +102,18 @@ void Particao(int Esq, int Dir, int *i, int *j, Compartimento *A, int *comp, int
             aux = A->ListaR[*i];
             A->ListaR[*i] = A->ListaR[*j];
             A->ListaR[*j] = aux;
-            (*mov) += 2;
+            (*mov)++;
             (*i)++;
             (*j)--;
         }
-        (*comp)++;
+
     } while (*i <= *j);
 }
 void QuickSort(Compartimento *A, int n)
 {
     int comp = 0, mov = 0;
     Ordena(0, n - 1, A, &comp, &mov);
-    // LImprimeRocha(A);
+    LImprimeRocha(A);
     printf("\nMovimentacoes QuickSort: %d\n", mov);
     printf("Comparacoes QuickSort: %d\n", comp);
 }

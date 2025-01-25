@@ -14,6 +14,7 @@ int main()
     double lat_r, long_r;
     float peso_r;
     char linha[255];
+    int mov = 0, comp = 0;
 
     printf("Digite o nome do arquivo: ");
 
@@ -59,19 +60,28 @@ int main()
     }
     fclose(arq);
 
-    Compartimento copiaVetor = ListaRocha;
+    Compartimento copiaVetor = ListaRocha;  
+    int opcao;
+    printf("Digite '1' para escolher o SelectionSort, ou '2' para escolher o QuickSort: ");
+    scanf("%d", &opcao);
+    if (opcao ==1)
+    {
+            start = clock();
+            SelectionSort(copiaVetor.ListaR, LTamanho(&copiaVetor), &mov, &comp);
+            stop = clock();
 
-    start = clock();
-    SelectionSort(copiaVetor.ListaR, LTamanho(&copiaVetor));
-    stop = clock();
-
-    double timep = (double)(stop - start) / CLOCKS_PER_SEC;
-    printf("\nTempo para SeletionSort: %.5lf segundos\n\n", timep);
-
-    start = clock();
-    QuickSort(&ListaRocha, LTamanho(&ListaRocha));
-    stop = clock();
-
-    timep = (double)(stop - start) / CLOCKS_PER_SEC;
-    printf("\nTempo para QuickSort: %.5lf segundos\n\n", timep);
+            LImprimeRocha(&copiaVetor);
+            printf("\nMovimentacoes Selection = %d\n", mov);
+            printf("Comparacoes Seletion = %d\n", comp);
+            double timeS = (double)(stop - start) / CLOCKS_PER_SEC;
+            printf("\nTempo para SeletionSort: %.15lf segundos\n\n", timeS);
+    }else if(opcao ==2){
+        start = clock();
+        QuickSort(&ListaRocha, LTamanho(&ListaRocha));
+        stop = clock();
+        
+        double timeQ = (double)(stop - start) / CLOCKS_PER_SEC;
+        printf("\nTempo para QuickSort: %.7lf segundos\n\n", timeQ);
+    }
+   
 }

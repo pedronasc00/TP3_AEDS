@@ -13,7 +13,7 @@ void FLVaziaRocha(Compartimento *LRocha, int n);
 int LEhVaziaRocha(Compartimento *LRocha);
 int LInsereRocha(Compartimento *LRocha, RochaMineral x, int n);
 void LImprimeRocha(Compartimento *LRocha);
-void SelectionSort(RochaMineral *ListaR, int n);
+void SelectionSort(RochaMineral *ListaR, int n, int *mov, int *comp);
 int LTamanho(Compartimento *LRocha);
 void QuickSort(Compartimento *A, int n);
 void Ordena(int Esq, int Dir, Compartimento *A, int *comp, int *mov);
