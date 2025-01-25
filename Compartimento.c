@@ -109,11 +109,10 @@ void Particao(int Esq, int Dir, int *i, int *j, Compartimento *A, int *comp, int
 
     } while (*i <= *j);
 }
-void QuickSort(Compartimento *A, int n)
+void QuickSort(Compartimento *A, int n, int *movi, int*cont)
 {
     int comp = 0, mov = 0;
-    Ordena(0, n - 1, A, &comp, &mov);
-    LImprimeRocha(A);
-    printf("\nMovimentacoes QuickSort: %d\n", mov);
-    printf("Comparacoes QuickSort: %d\n", comp);
+    Ordena(0, n - 1, A, cont, movi);
+    
+    
 }

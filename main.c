@@ -77,10 +77,13 @@ int main()
             printf("\nTempo para SeletionSort: %.15lf segundos\n\n", timeS);
     }else if(opcao ==2){
         start = clock();
-        QuickSort(&ListaRocha, LTamanho(&ListaRocha));
+        int movi=0, cont=0;
+        QuickSort(&ListaRocha, LTamanho(&ListaRocha), &movi, &cont);
         stop = clock();
-        
+        LImprimeRocha(&ListaRocha);
         double timeQ = (double)(stop - start) / CLOCKS_PER_SEC;
+        printf("\nMovimentacoes QuickSort: %d\n", movi);
+        printf("Comparacoes QuickSort: %d\n", cont);
         printf("\nTempo para QuickSort: %.7lf segundos\n\n", timeQ);
     }
    
