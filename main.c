@@ -72,9 +72,9 @@ int main()
 
             LImprimeRocha(&copiaVetor);
             printf("\nMovimentacoes Selection = %d\n", mov);
-            printf("Comparacoes Seletion = %d\n", comp);
+            printf("Comparacoes Selection = %d\n", comp);
             double timeS = (double)(stop - start) / CLOCKS_PER_SEC;
-            printf("\nTempo para SeletionSort: %.15lf segundos\n\n", timeS);
+            printf("\nTempo para SelectionSort: %.15lf segundos\n\n", timeS);
     }else if(opcao ==2){
         start = clock();
         int movi=0, cont=0;
